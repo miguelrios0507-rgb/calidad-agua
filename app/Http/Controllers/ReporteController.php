@@ -20,7 +20,7 @@ class ReporteController extends Controller
      */
     public function create()
     {
-        //
+        return view('reportes.crear-reportes');
     }
 
     /**
@@ -28,7 +28,14 @@ class ReporteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reporte = new Reporte();
+        $reporte->user_id = auth()->user()->id;
+        $reporte->descripcion = $request->input('descripcion');
+        $reporte->ubicacion = $request->input('ubicacion');
+        $reporte->fecha_inicio = $request->input('fecha_inicio');
+        $reporte->save();
+
+        return redirect()->back();
     }
 
     /**

@@ -14,7 +14,10 @@ Route::inertia('/', 'Welcome')->name('home');
 
     Route::get('/info-sistema', function(){
     return view('info-sistema');
+
 });
+
+Route::resource('reporte', ReporteController::class);
 
 });
 
