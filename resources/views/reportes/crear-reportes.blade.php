@@ -18,5 +18,6 @@
     <label for="folio">Folio:</label>
     <input type="text" id="folio" name="folio"><br><br>
   <button type="submit">Crear Reporte</button>
+  <button type="button" onclick="window.location.href='{{ route('reportes.index') }}'">Cancelar</button>
     </form>
 </body>
