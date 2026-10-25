@@ -20,15 +20,22 @@ class ReporteController extends Controller
      */
     public function create()
     {
-        //
+         return view('crear-reportes');
     }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $reporte = new Reporte();
+        $reporte->user_id = auth()->user()->id;
+        $reporte->descripcion = $request->input('descripcion');
+        $reporte->ubicacion = $request->input('ubicacion');
+        $reporte->fecha_inicio = $request->input('fecha_inicio');
+         $reporte->folio = $request->input('folio');
+        $reporte->save();
+
+        return redirect()->back();
     }
 
     /**
