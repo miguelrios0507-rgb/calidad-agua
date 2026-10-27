@@ -12,8 +12,8 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        return view('reportes.listado-reportes', [
-            'reportes' => Reporte::all()
+        return view('reportes.listado-reportes')->with([
+            'reportes'-> Reporte::where('usuario_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -29,13 +29,17 @@ class ReporteController extends Controller
      */
     public function store(Request $request)
     {
-        $reporte = new Reporte();
-        $reporte->user_id = auth()->user()->id;
-        $reporte->descripcion = $request->input('descripcion');
-        $reporte->ubicacion = $request->input('ubicacion');
-        $reporte->fecha_inicio = $request->input('fecha_inicio');
-         $reporte->folio = $request->input('folio');
-        $reporte->save();
+       
+        $request->merge(['user_id' => auth()->user()->id]);
+        reporte:create($request->all());
+    
+        // $reporte = new Reporte();
+        //$reporte->user_id = auth()->user()->id;
+        //$reporte->descripcion = $request->input('descripcion');
+        //$reporte->ubicacion = $request->input('ubicacion');
+        //$reporte->fecha_inicio = $request->input('fecha_inicio');
+         //$reporte->folio = $request->input('folio');
+        //$reporte->save();
 
         return redirect()->back();
     }

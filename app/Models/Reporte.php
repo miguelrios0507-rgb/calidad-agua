@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reporte extends Model
 {
-    //
+    protected $table = 'reportes';
+
+    protected $fillable = [
+        'user_id',
+        'descripcion',
+        'ubicacion',
+        'fecha_inicio',
+        'folio'
+    ];
 }
