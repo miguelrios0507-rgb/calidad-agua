@@ -12,7 +12,9 @@ class ReporteController extends Controller
      */
     public function index()
     {
-        //
+        return view('reportes.listado-reportes', [
+            'reportes' => Reporte::all()
+        ]);
     }
 
     /**
