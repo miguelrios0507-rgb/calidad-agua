@@ -14,8 +14,8 @@ class ReporteController extends Controller
     {
         return view('reportes.listado-reportes')->with([
         // 'reportes' => Reporte::where('user_id', auth()->user()->id)->get()
-        'reportes' => Auth::user()->reportes->sortByDesc('id'),
-
+        
+        'reportes' => auth()->user()->reportes()->get()
         ]);
     }
 
