@@ -13,7 +13,9 @@ class ReporteController extends Controller
     public function index()
     {
         return view('reportes.listado-reportes')->with([
-            'reportes'-> Reporte::where('usuario_id', auth()->user()->id)->get()
+        // 'reportes' => Reporte::where('user_id', auth()->user()->id)->get()
+        'reportes' => Auth::user()->reportes->sortByDesc('id'),
+
         ]);
     }
 

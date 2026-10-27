@@ -22,7 +22,8 @@
             @foreach ($reportes as $reporte)
                 <tr>
                     <td>{{ $reporte->id }}</td>
-                    <td>{{ $reporte->usuario_id }}</td>
+                    <td>{{ $reporte->user->name }} <br>
+                        {{$reporte->user->email}}</td>
                     <td>{{ $reporte->ubicacion }}</td>
                     <td>{{ $reporte->descripcion }}</td>
                     <td>{{ $reporte->fecha_inicio }}</td>
@@ -30,4 +31,4 @@
                 </tr>
             @endforeach
         </tbody>
-    </table>
+    </table>-
