@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reporte extends Model
 {
+    
+    //protected $guarded = ['id', 'created_at', 'updated_at'];
+
     protected $table = 'reportes';
 
     protected $fillable = [
@@ -15,4 +18,10 @@ class Reporte extends Model
         'fecha_inicio',
         'folio'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
