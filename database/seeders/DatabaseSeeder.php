@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Reporte;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,13 +21,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        user::factory()->has
-        ((Reporte::factory()->count(3)), 'reportes')
-        ->create();
-]);
+        User::factory()
+            ->has(Reporte::factory()->count(3), 'reportes')
+            ->create();
 
         $this->call([
-            Reporteseeder::class,)
+            ReporteSeeder::class,
         ]);
     }
 }
