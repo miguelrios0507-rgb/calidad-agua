@@ -32,8 +32,8 @@ class ReporteController extends Controller
     public function store(Request $request)
     {
        
-        $request->merge(['user_id' => auth()->user()->id]);
-        reporte:create($request->all());
+    $request->merge(['user_id' => auth()->user()->id]);
+    Reporte::create($request->all());
     
         // $reporte = new Reporte();
         //$reporte->user_id = auth()->user()->id;
@@ -59,7 +59,8 @@ class ReporteController extends Controller
      */
     public function edit(Reporte $reporte)
     {
-        //
+        abort_if($reporte->user_id !== auth()->id(), 403);
+        return view('editar-reportes', ['reporte' => $reporte]);
     }
 
     /**
@@ -67,7 +68,9 @@ class ReporteController extends Controller
      */
     public function update(Request $request, Reporte $reporte)
     {
-        //
+    abort_if($reporte->user_id !== auth()->id(), 403);
+    $reporte->update($request->only(['ubicacion', 'descripcion', 'fecha_inicio']));
+    return redirect()->route('reportes.index');
     }
 
     /**
@@ -75,6 +78,8 @@ class ReporteController extends Controller
      */
     public function destroy(Reporte $reporte)
     {
-        //
+        abort_if($reporte->user_id !== auth()->id(), 403);
+        $reporte->delete();
+        return redirect()->route('reportes.index');
     }
 }
