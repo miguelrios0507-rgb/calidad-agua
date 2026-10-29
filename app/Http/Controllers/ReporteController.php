@@ -60,7 +60,7 @@ class ReporteController extends Controller
     public function edit(Reporte $reporte)
     {
         abort_if($reporte->user_id !== auth()->id(), 403);
-        return view('editar-reportes', ['reporte' => $reporte]);
+        return view('reportes.editar-reportes', ['reporte' => $reporte]);
     }
 
     /**

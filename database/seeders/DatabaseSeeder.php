@@ -19,6 +19,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        user::factory()->has
+        ((Reporte::factory()->count(3)), 'reportes')
+        ->create();
+]);
+
         $this->call([
             Reporteseeder::class,)
         ]);

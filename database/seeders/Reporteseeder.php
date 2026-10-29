@@ -12,22 +12,23 @@ class Reporteseeder extends Seeder
      */
     public function run(): void
     {
-        Reporte::create([
-            'user_id' => 1,
-            'descripcion' => 'Bla bla bla',
-            'ubicacion' => 'Casa X',
-            'fecha_inicio' => now(),
-            'folio' => 'FOLIO12345'
+
+    reportes::factory()->count(10)->create();
+        //Reporte::create([
+          //  'user_id' => 1,
+            //'descripcion' => 'Bla bla bla',
+           // 'ubicacion' => 'Casa X',
+            //'fecha_inicio' => now(),
+            //'folio' => 'FOLIO12345'
         ]);
 
-        DB::table('reportes')->insert([
-            'user_id' => 1,
-            'descripcion' => 'Creado con DB',
-            'ubicacion' => 'Casa X',
-            'fecha_inicio' => now(),
-            'folio' => 'FOLIO12345'
-            'Created_at' => now(),
-            'Updated_at' => now()
+        //DB::table('reportes')->insert([
+          //  'user_id' => 1,
+           // 'descripcion' => 'Creado con DB',
+            //'ubicacion' => 'Casa X',
+         //   'fecha_inicio' => now(),
+           // 'Created_at' => now(),
+           // 'Updated_at' => now()
         ]);
     }
 }
