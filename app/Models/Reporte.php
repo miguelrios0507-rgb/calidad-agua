@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reporte extends Model
 {
     
+   use HasFactory, softDeletes;
     //protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $table = 'reportes';

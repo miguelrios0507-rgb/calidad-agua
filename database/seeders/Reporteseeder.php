@@ -20,7 +20,7 @@ class Reporteseeder extends Seeder
            // 'ubicacion' => 'Casa X',
             //'fecha_inicio' => now(),
             //'folio' => 'FOLIO12345'
-        ]);
+       // ]);
 
         //DB::table('reportes')->insert([
           //  'user_id' => 1,
@@ -29,6 +29,6 @@ class Reporteseeder extends Seeder
          //   'fecha_inicio' => now(),
            // 'Created_at' => now(),
            // 'Updated_at' => now()
-        ]);
+        //]);
     }
 }
