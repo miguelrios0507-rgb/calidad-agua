@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Reporte;
 
 class Reporteseeder extends Seeder
 {
@@ -13,7 +14,7 @@ class Reporteseeder extends Seeder
     public function run(): void
     {
 
-    reportes::factory()->count(10)->create();
+    Reporte::factory()->count(10)->create();
         //Reporte::create([
           //  'user_id' => 1,
             //'descripcion' => 'Bla bla bla',

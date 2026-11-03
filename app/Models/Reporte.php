@@ -3,22 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Reporte extends Model
 {
     
-   use HasFactory, softDeletes;
-    //protected $guarded = ['id', 'created_at', 'updated_at'];
+    use HasFactory;
 
-    protected $table = 'reportes';
-
-    protected $fillable = [
-        'user_id',
-        'descripcion',
-        'ubicacion',
-        'fecha_inicio',
-        'folio'
-    ];
+    protected $fillable = ['user_id', 'ubicacion', 'descripcion', 'fecha_inicio', 'folio'];
 
     public function user()
     {

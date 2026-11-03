@@ -23,7 +23,7 @@ class ReporteFactory extends Factory
             'descripcion' => fake()->sentence(),
             'ubicacion' => fake()->address(),
             'fecha_inicio' => fake()->date(),
-            'folio' => fake()->unique()->numerify('??-#####'),
+            'folio' => fake()->unique()->bothify('??-#####'),
         ];
     }
 }
